@@ -1,1 +1,13 @@
-<h1>Contact us </h1>
+<h1>All offers </h1>
+<p>
+  <%= link_to "Revenir à l'accueil", root_path, class: "btn btn-primary" %>
+  <%= link_to "Ajouter un vélo", new_listing_path, class: "btn btn-success" %>
+  <p>
+
+      <ul>
+      <% @listings.each do |listing| %>
+      <li>
+        <%= link_to listing.name, listing_path(listing) %>
+      </li>
+      <% end %>
+      </ul>
