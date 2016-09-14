@@ -1,0 +1,13 @@
+<div class="container">
+ <div class="row">
+   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+     <h1 class="text-center">Editer la fiche de votre vélo</h1>
+<%= simple_form_for @listing do |f| %>
+     <%= f.input :name, placeholder: "VTT", label: "Titre de votre annonce?" %>
+
+     <%= f.input :description, placeholder: "Ville", label: "Ville" %>
+     <%= f.button :submit, "Valider changement(s)", class: "btn btn-primary" %>
+<% end %>
+   </div>
+  </div>
+</div>

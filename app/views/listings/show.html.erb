@@ -15,5 +15,7 @@
 </h3>
 
 <p class="text-center">
-<%= link_to "Revenir à la liste", listings_path %>
+  <%= link_to "Editer", edit_listing_path(@listing), class: "btn btn-warning" %>
+    <%= link_to "Supprimer", listing_path(@listing), method: :delete,class: "btn btn-danger" %>
+<%= link_to "Revenir à la liste", listings_path, class: "btn btn-primary" %>
 </p>
