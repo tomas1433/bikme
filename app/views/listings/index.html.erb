@@ -1,14 +1,42 @@
-<h1>All offers </h1>
-<p>
-  <%= link_to "Revenir à l'accueil", root_path, class: "btn btn-primary" %>
-  <%= link_to "Ajouter un vélo", new_listing_path, class: "btn btn-success" %>
-  <p>
 
-      <ul>
+<div class="container">
+  <div class="row">
+    <div clas="col-xs-12 col-sm-10 col-sm-offset-1">
+<h1 class="text-center">Tous les vélos à louer </h1>
+
       <% @listings.each do |listing| %>
-      <li>
-        <%= link_to listing.name, listing_path(listing) %> (<%= listing.description %>)
 
-      </li>
-      <% end %>
+
+          <div class="product">
+      <div class='product-upvote'>
+        <div class="product-arrow"></div>
+        <div class='product-count'>95</div>
+      </div>
+
+      <img src="http://unsplash.it/300/200?random" alt="Vtt" class="product-image">
+      <div class='product-body'>
+        <h3><%= listing.name %></h3>
+        <p><%= listing.description %></p>
+      </div>
+      <ul class="list-inline product-controls ">
+
+        <li>
+          <%= link_to listing_path(listing) do %>
+          <i class="fa fa-eye"></i>
+          <% end %>
+        </li>
+        <li><a href=""><i class="fa fa-share"></i></a></li>
+        <li><a href=""><i class="fa fa-star"></i></a></li>
       </ul>
+    </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
