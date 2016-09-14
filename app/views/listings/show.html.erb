@@ -1,21 +1,14 @@
-<h1 class="text-center">Détail du vélo à louer </h1>
-
-<h2 class="text-center">
-  <%= @listing.name %>
-</h2>
-<h2 class="text-center">
-  <%= @listing.description %>
-</h2>
-<h3 class="text-center">
-  Description
-</h3>
-
-<h3 class="text-center">
-  Prix
-</h3>
-
-<p class="text-center">
-  <%= link_to "Editer", edit_listing_path(@listing), class: "btn btn-warning" %>
-    <%= link_to "Supprimer", listing_path(@listing), method: :delete,class: "btn btn-danger" %>
-<%= link_to "Revenir à la liste", listings_path, class: "btn btn-primary" %>
-</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path "bikew.jpg"%>');">
+  <div class="banner-content">
+   <h1>
+     <%= @listing.name %>
+    </h1>
+    <p>
+      <%= @listing.description %>
+      <span class="label label-default">
+        <%= @listing.use %>
+    </p>
+    
+    <div class="btn btn-primary btn-lg">Commander!</div>
+  </div>
+</div>

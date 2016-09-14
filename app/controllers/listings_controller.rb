@@ -1,10 +1,13 @@
 class ListingsController < ApplicationController
 before_action :find_listing, only: [:show, :edit, :update, :destroy]
+
   def index
+    if params[:use]
+      @listings = Listing.where(use: params[:use])
+      else
      @listings = Listing.all
-
   end
-
+  end
     def show
 
     end
@@ -44,7 +47,7 @@ redirect_to listings_path
 private
 
   def listing_params
-    params.require(:listing).permit(:name, :description)
+    params.require(:listing).permit(:name, :description, :use)
   end
 
   def find_listing

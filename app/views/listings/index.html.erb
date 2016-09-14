@@ -25,8 +25,19 @@
           <i class="fa fa-eye"></i>
           <% end %>
         </li>
-        <li><a href=""><i class="fa fa-share"></i></a></li>
-        <li><a href=""><i class="fa fa-star"></i></a></li>
+                <li>
+          <%= link_to edit_listing_path(listing) do %>
+          <i class="fa fa-pencil"></i>
+          <% end %>
+        </li>
+                <li>
+          <%= link_to listing_path(listing), method: :delete do %>
+          <i class="fa fa-trash"></i>
+          <% end %>
+        </li>
+
+
+
       </ul>
     </div>
 

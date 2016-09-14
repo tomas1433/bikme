@@ -1,6 +1,6 @@
 <%= simple_form_for @listing do |f| %>
      <%= f.input :name, placeholder: "VTT", label: "Titre de votre annonce?" %>
-
      <%= f.input :description, placeholder: "Ville", label: "Ville" %>
-     <%= f.button :submit, "Ajouter", class: "btn btn-primary" %>
+     <%= f.input :use, collection: ["ville", "montagne", "sport"], prompt: "usage de votre vélo" %>
+     <%= f.button :submit, "Valider", class: "btn btn-primary" %>
 <% end %>
