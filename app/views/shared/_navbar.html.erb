@@ -1,3 +1,5 @@
+
+
 <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
@@ -6,6 +8,9 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+
+    <% if user_signed_in? %>
 
     <!-- Search form -->
     <form action="" class="navbar-wagon-search">
@@ -34,7 +39,9 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Mon profil</a></li>
           <li><a href="#">Mon compte</a></li>
-          <li><a href="#">Deconnexion</a></li>
+          <li>
+          <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+          </li>
         </ul>
       </div>
     </div>
@@ -42,6 +49,32 @@
     <!-- Button (call-to-action) -->
 
     <%= link_to "Créer une annonce", new_listing_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
+
+</div>
+<!-- Dropdown appearing on mobile only -->
+      <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li>
+         <%= link_to "Créer une annonce", new_listing_path %>
+        </li>
+
+        <li>
+        <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+        </li>
+
+      </ul>
+
+</div>
+
+
+    <% else %>
+<%= link_to "Connexion", new_user_session_path, class:"navbar-wagon-item navbar-wagon-link" %>
+<%= link_to "Inscription", new_user_registration_path, class:"navbar-wagon-item navbar-wagon-link"  %>
+
+
   </div>
 
   <!-- Dropdown appearing on mobile only -->
@@ -49,10 +82,12 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Mon profil</a></li>
-        <li><a href="#">Mon compte</a></li>
-        <li><a href="#">Deconnexion</a></li>
+        <li><%= link_to "Connexion", new_user_session_path, class:"navbar-wagon-item navbar-wagon-link" %></li>
+        <li><%= link_to "Inscription", new_user_registration_path, class:"navbar-wagon-item navbar-wagon-link"  %></li>
+
       </ul>
     </div>
+<% end %>
   </div>
+
 </div>

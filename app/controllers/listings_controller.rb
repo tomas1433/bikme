@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
 before_action :find_listing, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -18,6 +19,7 @@ before_action :find_listing, only: [:show, :edit, :update, :destroy]
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user = current_user
     if @listing.save
     redirect_to listings_path
       else
@@ -30,20 +32,24 @@ before_action :find_listing, only: [:show, :edit, :update, :destroy]
   end
 
       def update
-
-        if @listing.update(listing_params)
+if @listing.user == current_user
+        @listing.update(listing_params)
           redirect_to listings_path
           else
+           flash[:alert] = "Action impossible, ce n'est pas votre vélo"
           render :edit
         end
       end
 
   def destroy
-
+if @listing.user == current_user
     @listing.destroy
 redirect_to listings_path
+    else
+  flash[:alert] = "Action impossible, ce n'est as votre vélo!"
+    render :index
   end
-
+  end
 private
 
   def listing_params
