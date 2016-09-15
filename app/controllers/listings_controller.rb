@@ -53,7 +53,7 @@ redirect_to listings_path
 private
 
   def listing_params
-    params.require(:listing).permit(:name, :description, :use)
+    params.require(:listing).permit(:name, :description, :use, :photo)
   end
 
   def find_listing

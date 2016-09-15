@@ -12,8 +12,12 @@
         <div class="product-arrow"></div>
         <div class='product-count'>95</div>
       </div>
+<% if listing.photo? %>
+  <%= cl_image_tag(listing.photo.path, height: 117, width: 175, crop: :fill, class: 'product-image') %>
+<% else %>
+<img src="http://unsplash.it/117/175?random" alt="Vtt" class="product-image">
+<% end %>
 
-      <img src="http://unsplash.it/300/200?random" alt="Vtt" class="product-image">
       <div class='product-body'>
         <h3><%= listing.name %></h3>
         <p><%= listing.description %></p>
