@@ -2,11 +2,16 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
   resources :users
+  resources :listings
+
   root to: 'pages#home'
 
   get "/contact" => "pages#contact"
+  get 'seller' => "listings#seller"
 
-  resources :listings
+  root 'listings#index'
+
+
   #get "/listings" => "listings#index"
   #get "/listings/:id" => "listings#show"
 

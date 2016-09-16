@@ -1,12 +1,17 @@
 class ListingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
-before_action :find_listing, only: [:show, :edit, :update, :destroy]
+  before_action :find_listing, only: [:show, :edit, :update, :destroy]
+
+
+def seller
+  @listings = Listing.where(user: current_user).order("created_at DESC")
+end
 
   def index
     if params[:use]
       @listings = Listing.where(use: params[:use])
       else
-     @listings = Listing.all
+     @listings = Listing.all.order("created_at DESC")
   end
   end
     def show

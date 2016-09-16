@@ -44,9 +44,9 @@
 
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Mon profil</a></li>
-          <li><a href="#">Mon compte</a></li>
-          <li>
+          <li> <%= link_to "Mes annonces", seller_path %></li>
+          <li> <%= link_to "Mon compte", edit_user_registration_path %></li>
+           <li>
           <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
           </li>
         </ul>
@@ -67,10 +67,12 @@
         <% else %>
         <img src="http://placehold.it/30x30" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% end %>
-      
-      
-      
+
+
+
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li> <%= link_to "Mes annonces", seller_path %></li>
+        <li> <%= link_to "Mon compte", edit_user_registration_path %></li>
         <li>
          <%= link_to "Créer une annonce", new_listing_path %>
         </li>
