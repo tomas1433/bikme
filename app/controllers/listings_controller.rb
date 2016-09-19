@@ -39,7 +39,7 @@ end
       def update
 if @listing.user == current_user
         @listing.update(listing_params)
-          redirect_to listings_path
+          redirect_to seller_path
           else
            flash[:alert] = "Action impossible, ce n'est pas votre vélo"
           render :edit
@@ -58,7 +58,7 @@ redirect_to listings_path
 private
 
   def listing_params
-    params.require(:listing).permit(:name, :description, :use, :photo)
+    params.require(:listing).permit(:name, :description, :use, :photo, :price)
   end
 
   def find_listing

@@ -3,12 +3,20 @@
    <h1>
      <%= @listing.name %>
     </h1>
+      <p>
+        <span class="label label-default">
+      <%= number_to_currency(@listing.price) %> Euros pas jour
+    </p>
     <p>
       <%= @listing.description %>
+      </p>
+    <p>
       <span class="label label-default">
         <%= @listing.use %>
-    </p>
+</p>
 
-    <div class="btn btn-primary btn-lg">Commander!</div>
+    <div>
+    <%= link_to "Louez ce vélo", new_listing_order_path(@listing), class: "btn btn-primary", data: { no_turbolink: true} %>
+    </div>
   </div>
 </div>

@@ -2,6 +2,7 @@
      <%= f.input :name, placeholder: "VTT", label: "Titre de votre annonce?" %>
      <%= f.input :description, placeholder: "Ville", label: "Ville" %>
      <%= f.input :use, collection: ["ville", "montagne", "sport"], prompt: "usage de votre vélo" %>
+     <%= f.input :price, placeholder: "Prix à la journée", label: "Prix de la location à la journée"  %>
      <%= f.input :photo, as: :attachinary %>
      <%= f.button :submit, "Valider", class: "btn btn-primary" %>
 <% end %>
